@@ -1,5 +1,9 @@
 #Gabriel Olvera Luis Fernando Casas
+from tkinter import *
 import tkinter
+
+
+
 
 import firebase_admin
 from firebase_admin import credentials
@@ -11,35 +15,38 @@ firebase_admin.initialize_app(cred, {
     'databaseURL' : 'https://iteso-parking.firebaseio.com/'
 })
 window = tkinter.Tk()
-window.geometry("1600x1000")
+canvas = Canvas(window, width = 1980, height = 1020)
+canvas.pack()
 ref = db.reference('/')
 et_1 = tkinter.Label(window, text= "tytpe in the state of Cajon 135")
-input_state = tkinter.Entry(window)
+input_state = tkinter.StringVar()
+input_entry = tkinter.Entry(window, textvariable=input_state)
 et_1.pack()
-input_state.pack()
+input_entry.pack()
 et_2 = tkinter.Label(window, text= "tytpe in the state of Cajon 120")
 et_2.pack()
-input_state2 = tkinter.Entry(window)
-input_state2.pack()
-
+input_state2 = tkinter.StringVar()
+input_entry2 = tkinter.Entry(window, textvariable=input_state2)
+input_entry2.pack()
+img = PhotoImage(file='arboles.ppm')
+canvas.create_image(20,20, anchor=NW, image=img)
 def updateReference():
-    state1 = str(input_state.get())
+    state1 = input_state.get()
     print(state1)
-    print("Ho")
-    state_2 = str(input_state2.get())
+    state_2 = input_state2.get()
     print(state_2)
     ref.set({
         ' Ejemplo':
             {
                 'Cajon 135':{
                     'number':'135',
-                    'State' : 'Hahaha' ,
+                    'State' : state1 ,
                     'ID' : '135Z2B'
 
                 },
             'Cajon 120': {
                    'number' : '120',
-                'State' : 'Free',
+                'State' : state_2,
                 'ID' : '120Z2B'
 
 
