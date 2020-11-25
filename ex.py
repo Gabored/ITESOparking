@@ -20,6 +20,7 @@ canvas_iteso_logo.create_image(0,0,anchor=NW, image=img2)
 img = PhotoImage(file='arboles.ppm')
 canvas.create_image(0,0,anchor=NW, image=img)
 
+
 canvas.pack()
 def entry(txt):
     l=tk.Label(frame,text=txt,width=32)
@@ -30,6 +31,6 @@ def entry(txt):
 state = entry("State")
 Cajon = entry("Cajon")
 
-canvas.create_window(380, 282, anchor=NW, window=frame)
-canvas.create_window(380, 100, anchor='nw', window=canvas_iteso_logo)
+canvas.create_window(700, 282, anchor=NW, window=frame)
+canvas.create_window(700, 100, anchor='nw', window=canvas_iteso_logo)
 canvas.mainloop()

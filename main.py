@@ -2,18 +2,15 @@
 from tkinter import *
 import tkinter
 
+from firebase import firebase
+firebase = firebase.FirebaseApplication('https://iteso-parking.firebaseio.com/', None)
+result = firebase.get('/Usuarios/gabo')
+print('result', result)
+#cred = credentials.Certificate('firebase-sdk.json')
 
-
-
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import db
-
-cred = credentials.Certificate('firebase-sdk.json')
-
-firebase_admin.initialize_app(cred, {
-    'databaseURL' : 'https://iteso-parking.firebaseio.com/'
-})
+#firebase_admin.initialize_app(cred, {
+#    'databaseURL' : 'https://iteso-parking.firebaseio.com/'
+#})
 window = tkinter.Tk()
 canvas = Canvas(window, width = 1300, height = 500)
 canvas.pack()
