@@ -1,0 +1,95 @@
+from tkinter import *
+import tkinter as tk
+from firebase import firebase
+firebase = firebase.FirebaseApplication('https://iteso-parking.firebaseio.com/', None)
+result = firebase.get('/Usuarios/gabo')
+print('result', result)
+#import firebase_admin
+#from firebase_admin import credentials
+from firebase_admin import db
+#cred = credentials.Certificate('firebase-sdk.json')
+#firebase_admin.initialize_app(cred, {
+#    'databaseURL' : 'https://iteso-parking.firebaseio.com/'
+#})
+#ref = db.reference('Usuarios')
+#print(ref)
+#variablex = ref.get('/Usuarios/gabo/password')
+#print(variablex)
+
+condicion = DISABLED
+
+canvas = Canvas(0, width=1472, height=729)
+frame = Frame(0, width=1008,height=500)
+frame.pack()
+canvas_iteso_logo = Canvas(0, width=224,height=182)
+canvas_iteso_logo.pack()
+img2 = PhotoImage(file='liteso.ppm')
+canvas_iteso_logo.create_image(0,0,anchor=NW, image=img2)
+img = PhotoImage(file='arboles.ppm')
+canvas.create_image(0,0,anchor=NW, image=img)
+
+canvas.pack()
+#def validuser():
+
+
+def validcontra():
+    contra = password.get()
+    correcto = False
+
+    while correcto == False:
+        if len(contra) < 8:
+            return "Contraseña debe ser mayor a 8 caracteres"
+            #contra = str(input("Intente de nuevo: "))
+
+        if contra.isalnum() == True:
+            return "La contraseña debe contener algun caracter especial"
+            #contra = str(input("Intente de nuevo: "))
+
+        if contra.isupper() == True or contra.islower() == True:
+            return "La contraseña debe contener mayusculas y minusculas"
+            #contra = str(input("Intente de nuevo: "))
+
+        if contra.count(" ") > 0:
+            return "la contraseña no debe llevar espacios"
+            #contra = str(input("Intente de nuevo: "))
+
+        if len(contra) > 8 and contra.isalnum() == False and contra.isupper() == False and contra.islower() == False and contra.count(" ") == 0:
+            print("Valido")
+            correcto = True
+            #condicion = ACTIVE
+            button["state"] = ACTIVE
+
+
+
+
+
+
+
+def entry(txt):
+    l=tk.Label(frame,text=txt,width=32)
+    l.pack()
+    e = tk.Entry(frame,text=txt,width=32)
+    e.pack()
+
+
+
+user = entry("Username")
+
+j = tk.Label(frame,text = "Password",width=32).pack()
+password = tk.StringVar()
+e=tk.Entry(frame,show="*",text = "Password",width=32, textvariable = password).pack()
+
+contraseña = password.get()
+
+button =tk.Button(frame, state=condicion,text="Registrar")
+button.pack()
+
+buttovalid = tk.Button(frame,text="Validar",command = validcontra)
+buttovalid.pack()
+
+
+
+
+canvas.create_window(600, 282, anchor=NW, window=frame)
+canvas.create_window(600, 100, anchor='nw', window=canvas_iteso_logo)
+canvas.mainloop()

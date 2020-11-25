@@ -1,13 +1,13 @@
 from tkinter import *
 import tkinter as tk
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import db
-cred = credentials.Certificate('firebase-sdk.json')
-firebase_admin.initialize_app(cred, {
-    'databaseURL' : 'https://iteso-parking.firebaseio.com/'
-})
-ref = db.reference('/')
+#import firebase_admin
+#from firebase_admin import credentials
+#from firebase_admin import db
+#cred = credentials.Certificate('firebase-sdk.json')
+#firebase_admin.initialize_app(cred, {
+#    'databaseURL' : 'https://iteso-parking.firebaseio.com/'
+#})
+#ref = db.reference('/')
 
 
 canvas = Canvas(0, width=1472, height=729)
