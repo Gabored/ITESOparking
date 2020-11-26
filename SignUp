@@ -49,7 +49,7 @@ def validuser():
             break
         if len(user) < 20 and user.isalnum() == False and len(user)> 0:
             print("Valido")
-            correcto = True
+            #button["state"] = ACTIVE
             return True
             break
 
@@ -90,13 +90,16 @@ def validcontra():
         if len(contra) > 8 and contra.isalnum() == False and contra.isupper() == False and contra.islower() == False and contra.count(" ") == 0 and validuser()==True:
             print("Valido")
             correcto = True
-            #condicion = ACTIVE
-            button["state"] = ACTIVE
+            #button["state"] = ACTIVE
+            return True
             break
 
 
 
-
+def validbutton():
+    button["state"] = DISABLED
+    if validuser() == True and validcontra() == True:
+        button["state"] = ACTIVE
 
 
 
@@ -124,7 +127,7 @@ contraseña = password.get()
 button =tk.Button(frame, state=DISABLED,text="Registrar")
 button.pack()
 
-buttovalid = tk.Button(frame,text="Validar",command = validuser)
+buttovalid = tk.Button(frame,text="Validar",command = validbutton)
 buttovalid.pack()
 
 
