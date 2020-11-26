@@ -11,8 +11,9 @@ import tkinter as tk
 
 
 canvas = Canvas(0, width=1472, height=729)
-frame = Frame(0, width=1008,height=100)
+frame = Frame(0, width=1008,height=400)
 frame.pack()
+
 canvas_iteso_logo = Canvas(0, width=224,height=182)
 canvas_iteso_logo.pack()
 img2 = PhotoImage(file='liteso.ppm')
@@ -28,9 +29,15 @@ def entry(txt):
     e=tk.Entry(frame)
     e.pack()
 
-state = entry("State")
-Cajon = entry("Cajon")
+state = entry("User ")
+Cajon = entry("Password")
+
+e = tk.Button(frame, text="Log in", state=DISABLED)
+e.pack()
+l = tk.Button(frame, text="Sign Up ", state=DISABLED)
+l.pack()
 
 canvas.create_window(700, 282, anchor=NW, window=frame)
+
 canvas.create_window(700, 100, anchor='nw', window=canvas_iteso_logo)
 canvas.mainloop()
