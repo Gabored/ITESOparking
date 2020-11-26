@@ -1,9 +1,9 @@
 from tkinter import *
 import tkinter as tk
-from firebase import firebase
-firebase = firebase.FirebaseApplication('https://iteso-parking.firebaseio.com/', None)
-result = firebase.get('/Usuarios/gabo')
-print('result', result)
+#from firebase import firebase
+#firebase = firebase.FirebaseApplication('https://iteso-parking.firebaseio.com/', None)
+#result = firebase.get('/Usuarios/gabo')
+#print('result', result)
 #import firebase_admin
 #from firebase_admin import credentials
 from firebase_admin import db
@@ -16,7 +16,7 @@ from firebase_admin import db
 #variablex = ref.get('/Usuarios/gabo/password')
 #print(variablex)
 
-condicion = DISABLED
+condicion = False
 
 canvas = Canvas(0, width=1472, height=729)
 frame = Frame(0, width=1008,height=500)
@@ -29,7 +29,33 @@ img = PhotoImage(file='arboles.ppm')
 canvas.create_image(0,0,anchor=NW, image=img)
 
 canvas.pack()
-#def validuser():
+def validuser():
+    user = userio.get()
+    correcto = False
+
+    while correcto == False:
+        if len(user) == 0:
+            return "El usuario no puede estar vacio"
+
+            break
+        if user.isalnum() == True:
+            return "El usuarop debe contener algun caracter especial"
+            # contra = str(input("Intente de nuevo: "))
+
+            break
+        if len(user) > 20:
+            return "El usuario no puede tener mas de 20 caracteres"
+
+            break
+        if len(user) < 20 and user.isalnum() == False and len(user)> 0:
+            print("Valido")
+            correcto = True
+            return True
+            break
+
+
+
+
 
 
 def validcontra():
@@ -39,25 +65,36 @@ def validcontra():
     while correcto == False:
         if len(contra) < 8:
             return "Contraseña debe ser mayor a 8 caracteres"
+
+            break
             #contra = str(input("Intente de nuevo: "))
 
         if contra.isalnum() == True:
             return "La contraseña debe contener algun caracter especial"
+
+            break
             #contra = str(input("Intente de nuevo: "))
 
         if contra.isupper() == True or contra.islower() == True:
             return "La contraseña debe contener mayusculas y minusculas"
+
+            break
             #contra = str(input("Intente de nuevo: "))
 
         if contra.count(" ") > 0:
             return "la contraseña no debe llevar espacios"
+
+            break
             #contra = str(input("Intente de nuevo: "))
 
-        if len(contra) > 8 and contra.isalnum() == False and contra.isupper() == False and contra.islower() == False and contra.count(" ") == 0:
+        if len(contra) > 8 and contra.isalnum() == False and contra.isupper() == False and contra.islower() == False and contra.count(" ") == 0 and validuser()==True:
             print("Valido")
             correcto = True
             #condicion = ACTIVE
             button["state"] = ACTIVE
+            break
+
+
 
 
 
@@ -68,12 +105,15 @@ def validcontra():
 def entry(txt):
     l=tk.Label(frame,text=txt,width=32)
     l.pack()
-    e = tk.Entry(frame,text=txt,width=32)
+    e = tk.Entry(frame,text=txt,width=32, textvariable=userio)
     e.pack()
 
 
 
+userio = tk.StringVar()
 user = entry("Username")
+
+
 
 j = tk.Label(frame,text = "Password",width=32).pack()
 password = tk.StringVar()
@@ -81,10 +121,10 @@ e=tk.Entry(frame,show="*",text = "Password",width=32, textvariable = password).p
 
 contraseña = password.get()
 
-button =tk.Button(frame, state=condicion,text="Registrar")
+button =tk.Button(frame, state=DISABLED,text="Registrar")
 button.pack()
 
-buttovalid = tk.Button(frame,text="Validar",command = validcontra)
+buttovalid = tk.Button(frame,text="Validar",command = validuser)
 buttovalid.pack()
 
 

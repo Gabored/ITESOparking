@@ -38,7 +38,7 @@ k.insert(INSERT, "Recuerda que la opción de reservar un cajón se encuentra dis
 k.pack()
 y = tk.Label(fr_leyenda, text='Leyenda:', width=30, height= 2, font=('Helvetica', 20))
 y.pack
-entry("Elige un Lugar de Estacionamiento en el mapoide")
+entry("Elige un Lugar de Estacionamiento en el mapa")
 canvas.create_window(80, 100, anchor='nw', window=fr_leyenda)
 canvas.create_window(80, 350, anchor='nw', window=fr_button)
 canvas.create_window(690, 350, anchor='nw', window=fr_button_2)
