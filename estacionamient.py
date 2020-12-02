@@ -1,15 +1,31 @@
 from tkinter import *
 import tkinter as tk
-#import firebase_admin
-#from firebase_admin import credentials
-#from firebase_admin import db
-#cred = credentials.Certificate('firebase-sdk.json')
-#firebase_admin.initialize_app(cred, {
-#    'databaseURL' : 'https://iteso-parking.firebaseio.com/'
-#})
-#ref = db.reference('/')
+import pyrebase
+config = {
+  "apiKey": "AIzaSyA1ijWIJ8vBWiDNm7AV4ZC1Dk4UpHQUvqs",
+  "authDomain": "iteso-parking.firebaseapp.com",
+  "databaseURL": "https://iteso-parking.firebaseio.com",
+  "storageBucket": "iteso-parking.appspot.com",
+  "serviceAccount": "D:\Archivos  ITESO\Clases\Algoritmos y Programacion\ITESO Parking\ITESOparking\juan.json"
+}
+firebase = pyrebase.initialize_app(config)
+active_user = ''
+db = firebase.database()
+all_users = db.child("Usuarios").get()
+def logIn(usr, passw):
+
+    for user in all_users.each():
+        if usr == str(user.key()):
+            if passw == user.val().get('password'):
+                print("Log exitoso")
+                active_user = usr
+                return True
+            else:
+                return False
 
 
+
+print(logIn("gabo","Chucxhitsa"))
 canvas = Canvas(0, width=1472, height=729)
 frame = Frame(0, width=1008,height=100)
 fr_leyenda = Frame(0)
