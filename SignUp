@@ -1,20 +1,18 @@
 from tkinter import *
 import tkinter as tk
-#from firebase import firebase
-#firebase = firebase.FirebaseApplication('https://iteso-parking.firebaseio.com/', None)
-#result = firebase.get('/Usuarios/gabo')
-#print('result', result)
-#import firebase_admin
-#from firebase_admin import credentials
-from firebase_admin import db
-#cred = credentials.Certificate('firebase-sdk.json')
-#firebase_admin.initialize_app(cred, {
-#    'databaseURL' : 'https://iteso-parking.firebaseio.com/'
-#})
-#ref = db.reference('Usuarios')
-#print(ref)
-#variablex = ref.get('/Usuarios/gabo/password')
-#print(variablex)
+import pyrebase
+config = {
+  "apiKey": "AIzaSyA1ijWIJ8vBWiDNm7AV4ZC1Dk4UpHQUvqs",
+  "authDomain": "iteso-parking.firebaseapp.com",
+  "databaseURL": "https://iteso-parking.firebaseio.com",
+  "storageBucket": "iteso-parking.appspot.com",
+  "serviceAccount": "E:\GitHub\ITESOparking\juan.json"
+}
+firebase = pyrebase.initialize_app(config)
+active_user = ''
+db = firebase.database()
+all_users = db.child("Usuarios").get()
+
 
 condicion = False
 
@@ -48,8 +46,6 @@ def validuser():
 
             break
         if len(user) < 20 and user.isalnum() == False and len(user)> 0:
-            print("Valido")
-            #button["state"] = ACTIVE
             return True
             break
 
@@ -88,9 +84,7 @@ def validcontra():
             #contra = str(input("Intente de nuevo: "))
 
         if len(contra) > 8 and contra.isalnum() == False and contra.isupper() == False and contra.islower() == False and contra.count(" ") == 0 and validuser()==True:
-            print("Valido")
             correcto = True
-            #button["state"] = ACTIVE
             return True
             break
 
@@ -111,6 +105,17 @@ def entry(txt):
     e = tk.Entry(frame,text=txt,width=32, textvariable=userio)
     e.pack()
 
+def register():
+    print("Se registro")
+    usr = userio.get()
+    pswrd = password.get()
+    json = {
+        usr: {'password': pswrd}
+    }
+    db.child("Usuarios").update(json)
+
+
+
 
 
 userio = tk.StringVar()
@@ -124,7 +129,7 @@ e=tk.Entry(frame,show="*",text = "Password",width=32, textvariable = password).p
 
 contraseña = password.get()
 
-button =tk.Button(frame, state=DISABLED,text="Registrar")
+button =tk.Button(frame, state=DISABLED,text="Registrar", command = register)
 button.pack()
 
 buttovalid = tk.Button(frame,text="Validar",command = validbutton)

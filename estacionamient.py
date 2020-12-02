@@ -6,7 +6,7 @@ config = {
   "authDomain": "iteso-parking.firebaseapp.com",
   "databaseURL": "https://iteso-parking.firebaseio.com",
   "storageBucket": "iteso-parking.appspot.com",
-  "serviceAccount": "D:\Archivos  ITESO\Clases\Algoritmos y Programacion\ITESO Parking\ITESOparking\juan.json"
+  "serviceAccount": "E:\GitHub\ITESOparking\juan.json"
 }
 firebase = pyrebase.initialize_app(config)
 active_user = ''
