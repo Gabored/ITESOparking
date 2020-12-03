@@ -1,81 +1,191 @@
-#Gabriel Olvera Luis Fernando Casas
+import tkinter as tk
+from tkinter import ttk
 from tkinter import *
-import tkinter
-
-from firebase import firebase
-firebase = firebase.FirebaseApplication('https://iteso-parking.firebaseio.com/', None)
-result = firebase.get('/Usuarios/gabo')
-print('result', result)
-#cred = credentials.Certificate('firebase-sdk.json')
-
-#firebase_admin.initialize_app(cred, {
-#    'databaseURL' : 'https://iteso-parking.firebaseio.com/'
-#})
-window = tkinter.Tk()
-canvas = Canvas(window, width = 1300, height = 500)
-canvas.pack()
-img = PhotoImage(file='arboles.ppm')
-canvas.create_image(20,20, anchor=NW, image=img)
-ref = db.reference('/')
-et_1 = tkinter.Label(window, text= "tytpe in the state of Cajon 135")
-input_state = tkinter.StringVar()
-input_entry = tkinter.Entry(window, textvariable=input_state)
-et_1.pack()
-input_entry.pack()
-et_2 = tkinter.Label(window, text= "tytpe in the state of Cajon 120")
-et_2.pack()
-input_state2 = tkinter.StringVar()
-input_entry2 = tkinter.Entry(window, textvariable=input_state2)
-input_entry2.pack()
-def updateReference():
-    state1 = input_state.get()
-    print(state1)
-    state_2 = input_state2.get()
-    print(state_2)
-    ref.set({
-        ' Ejemplo':
-            {
-                'Cajon 135':{
-                    'number':'135',
-                    'State' : state1 ,
-                    'ID' : '135Z2B'
-
-                },
-            'Cajon 120': {
-                   'number' : '120',
-                'State' : state_2,
-                'ID' : '120Z2B'
+import pyrebase
 
 
-                }
-            }
+config = {
+  "apiKey": "AIzaSyA1ijWIJ8vBWiDNm7AV4ZC1Dk4UpHQUvqs",
+  "authDomain": "iteso-parking.firebaseapp.com",
+  "databaseURL": "https://iteso-parking.firebaseio.com",
+  "storageBucket": "iteso-parking.appspot.com",
+  "serviceAccount": "E:\GitHub\ITESOparking\juan.json"
+}
+firebase = pyrebase.initialize_app(config)
+active_user = ''
+db = firebase.database()
+all_users = db.child("Usuarios").get()
 
-    })
-Ref_button = tkinter.Button(window, text="Update Reference", command = updateReference())
-Ref_button.pack()
-window.mainloop()
-'''
-#Update data
+LARGEFONT = ("Verdana", 35)
 
-#Primeros creamos una referencia de la base de datos
-rref = db.reference('Ejemplo') #En este caso pongo ejemplo por que quiero modificar el child o el atributo de este objeto
-cajon_ref= rref.child('Cajon') #Nombre del child
 
-cajon_ref.update({
-    'number': '666'
-})
+class tkinterApp(tk.Tk):
 
-#Modificar Muchos
+    # __init__ function for class tkinterApp  
+    def __init__(self, *args, **kwargs):
+        # __init__ function for class Tk
+        tk.Tk.__init__(self, *args, **kwargs)
 
-rrref =db.reference('Cajon')
-rrref .update({
-    'Arthut/number': '619',
-    'Cajon/number' : '765'
-})
+        # creating a container 
+        container = tk.Frame(self)
+        container.pack(side="top", fill="both", expand=True)
 
-#How to get the data from the REALTime Database
-reref= db.reference('Cajon')
-num_ref = reref.child('Cajon')
-nnum_ref = num_ref.child('number')
+        container.grid_rowconfigure(0, weight=1)
+        container.grid_columnconfigure(0, weight=1)
 
-'''
+        # initializing frames to an empty array 
+        self.frames = {}
+
+        # iterating through a tuple consisting 
+        # of the different page layouts 
+        for F in (LoginPage, Page1, Page2):
+            frame = F(container, self)
+
+            # initializing frame of that object from 
+            # startpage, page1, page2 respectively with  
+            # for loop 
+            self.frames[F] = frame
+
+            frame.grid(row=0, column=0, sticky="nsew")
+
+        self.show_frame(LoginPage)
+
+        # to display the current frame passed as
+
+    # parameter
+    def show_frame(self, cont):
+        frame = self.frames[cont]
+        frame.tkraise()
+
+    # first window frame startpage
+
+#command=lambda: controller.show_frame(Page1))
+class LoginPage(tk.Frame):
+
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+
+        def openSignUp():
+            controller.show_frame(Page1)
+
+        def logIn():
+            usr = userio.get()
+            passw = password.get()
+
+            for user in all_users.each():
+                if usr == str(user.key()):
+                    if passw == user.val().get('password'):
+                        print("Log exitoso")
+                        active_user = usr
+                        return True
+                    else:
+                        return False
+
+        canvas = Canvas(0, width=1472, height=729)
+        frame = Frame(0, width=1008, height=500)
+        frame.pack()
+        #global arboles
+        #arboles = PhotoImage(file='arboles.ppm')
+        #canvas_arboles = Label(0,width = 1472, height = 729,image = arboles)
+        #canvas_arboles.pack()
+        canvas_iteso_logo = Canvas(self, width=224, height=182)
+        canvas_iteso_logo.pack()
+        img2 = PhotoImage(file='liteso.ppm')
+        canvas_iteso_logo.create_image(0, 0, anchor='nw', image=img2)
+        img = PhotoImage(file='arboles.ppm')
+        canvas.create_image(0, 0, anchor='nw', image=img)
+
+        canvas.pack()
+
+        userio = tk.StringVar()
+        password = tk.StringVar()
+
+        def entry(txt):
+            l = tk.Label(frame, text=txt, width=32)
+            l.pack()
+            e = tk.Entry(frame, text=txt, width=32, textvariable=userio)
+            e.pack()
+
+        user = entry("Username")
+
+        j = tk.Label(frame, text="Password", width=32).pack()
+        e = tk.Entry(frame, show="*", text="Password", width=32, textvariable=password).pack()
+        button = tk.Button(frame, text="Login", command=logIn)
+        button.pack()
+        signbutton = tk.Button(frame, text="Sign Up",command= openSignUp)
+        signbutton.pack()
+
+        canvas.create_window(600, 282, anchor='nw', window=frame)
+        canvas.create_window(600, 100, anchor='nw', window=canvas_iteso_logo)
+
+
+
+
+
+
+
+
+
+
+
+    # second window frame page1
+
+
+class Page1(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self, text="Page 1", font=LARGEFONT)
+        label.grid(row=0, column=4, padx=10, pady=10)
+
+        # button to show frame 2 with text 
+        # layout2 
+        button1 = tk.Button(self, text="StartPage",
+                             command=lambda: controller.show_frame(LoginPage))
+
+        # putting the button in its place  
+        # by using grid 
+        button1.grid(row=1, column=1, padx=10, pady=10)
+
+        # button to show frame 2 with text 
+        # layout2 
+        button2 = tk.Button(self, text="Page 2",
+                             command=lambda: controller.show_frame(Page2))
+
+        # putting the button in its place by  
+        # using grid 
+        button2.grid(row=2, column=1, padx=10, pady=10)
+
+    # third window frame page2
+
+
+class Page2(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self, text="Page 2", font=LARGEFONT)
+        label.grid(row=0, column=4, padx=10, pady=10)
+
+        # button to show frame 2 with text 
+        # layout2 
+        button1 = tk.Button(self, text="Page 1",
+                             command=lambda: controller.show_frame(Page1))
+
+        # putting the button in its place by  
+        # using grid 
+        button1.grid(row=1, column=1, padx=10, pady=10)
+
+        # button to show frame 3 with text 
+        # layout3 
+        button2 = tk.Button(self, text="Startpage",
+                             command=lambda: controller.show_frame(LoginPage))
+
+        # putting the button in its place by 
+        # using grid 
+        button2.grid(row=2, column=1, padx=10, pady=10)
+
+    # Driver Code
+
+
+app = tkinterApp()
+app.mainloop() 

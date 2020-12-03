@@ -1,6 +1,7 @@
 from tkinter import *
 import tkinter as tk
 import pyrebase
+
 config = {
   "apiKey": "AIzaSyA1ijWIJ8vBWiDNm7AV4ZC1Dk4UpHQUvqs",
   "authDomain": "iteso-parking.firebaseapp.com",
@@ -9,9 +10,11 @@ config = {
   "serviceAccount": "E:\GitHub\ITESOparking\juan.json"
 }
 firebase = pyrebase.initialize_app(config)
-active_user = ''
 db = firebase.database()
+active_user = ''
 all_users = db.child("Usuarios").get()
+
+#Funcion para boton de Login
 def logIn():
     usr = userio.get()
     passw = password.get()
@@ -19,13 +22,19 @@ def logIn():
     for user in all_users.each():
         if usr == str(user.key()):
             if passw == user.val().get('password'):
-                print("Log exitoso")
-                active_user = usr
+
+                json = {
+                    usr:''
+                }
+                db.child("active").set(json)
+                labellog["text"] = "Log exitoso"
                 return True
             else:
+
+                labellog["text"] = "El usuario o la contraseña son incorrectos"
                 return False
 
-
+        labellog["text"] = "El usuario o la contraseña son incorrectos"
 
 
 
@@ -44,6 +53,7 @@ canvas.pack()
 userio =tk.StringVar()
 password = tk.StringVar()
 
+#Funcion de entrada de texto
 def entry(txt):
     l=tk.Label(frame,text=txt,width=32)
     l.pack()
@@ -60,6 +70,9 @@ button =tk.Button(frame,text="Login", command = logIn)
 button.pack()
 signbutton =tk.Button(frame,text="Sign Up")
 signbutton.pack()
+
+labellog = Label(frame)
+labellog.pack()
 
 canvas.create_window(600, 282, anchor=NW, window=frame)
 canvas.create_window(600, 100, anchor='nw', window=canvas_iteso_logo)
