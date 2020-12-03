@@ -7,7 +7,7 @@ config = {
   "authDomain": "iteso-parking.firebaseapp.com",
   "databaseURL": "https://iteso-parking.firebaseio.com",
   "storageBucket": "iteso-parking.appspot.com",
-  "serviceAccount": "D:\Archivos  ITESO\Clases\Algoritmos y Programacion\ITESO Parking\ITESOparking\juan.json"
+  "serviceAccount": "E:\GitHub\ITESOparking\juan.json"
 }
 
 
@@ -122,7 +122,12 @@ def fbtn1():
     boola15 = False
 
     u['text']= 'A1'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A1').get().val() != 'bgris.ppm':
+        a1['state'] = DISABLED
+
+
 
 def fbtn2():
     global boola1
@@ -156,7 +161,11 @@ def fbtn2():
     global boola15
     boola15 = False
     u['text']= 'A2'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A2').get().val() != 'bgris.ppm':
+        a2['state'] = DISABLED
+
 
 def fbtn3():
     global boola1
@@ -191,7 +200,11 @@ def fbtn3():
     boola15 = False
 
     u['text']= 'A3'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A3').get().val() != 'bgris.ppm':
+        a3['state'] = DISABLED
+
 
 def fbtn4():
     global boola1
@@ -225,7 +238,11 @@ def fbtn4():
     global boola15
     boola15 = False
     u['text']= 'A4'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A4').get().val() != 'bgris.ppm':
+        a4['state'] = DISABLED
+
 
 def fbtn5():
     global boola1
@@ -260,7 +277,11 @@ def fbtn5():
     boola15 = False
 
     u['text']= 'A5'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A5').get().val() != 'bgris.ppm':
+        a5['state'] = DISABLED
+
 
 def fbtn6():
     global boola1
@@ -294,7 +315,11 @@ def fbtn6():
     global boola15
     boola15 = False
     u['text']= 'A6'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A6').get().val() != 'bgris.ppm':
+        a6['state'] = DISABLED
+
 
 def fbtn7():
     global boola1
@@ -329,7 +354,11 @@ def fbtn7():
     boola15 = False
 
     u['text']= 'A7'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A7').get().val() != 'bgris.ppm':
+        a7['state'] = DISABLED
+
 
 def fbtn8():
     global boola1
@@ -363,7 +392,11 @@ def fbtn8():
     global boola15
     boola15 = False
     u['text']= 'A8'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A8').get().val() != 'bgris.ppm':
+        a8['state'] = DISABLED
+
 
 def fbtn9():
     global boola1
@@ -398,7 +431,11 @@ def fbtn9():
     boola15 = False
 
     u['text']= 'A9'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A9').get().val() != 'bgris.ppm':
+        a9['state'] = DISABLED
+
 
 def fbtn10():
     global boola1
@@ -432,7 +469,11 @@ def fbtn10():
     global boola15
     boola15 = False
     u['text']= 'A10'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A10').get().val() != 'bgris.ppm':
+        a10['state'] = DISABLED
+
 
 def fbtn11():
     global boola1
@@ -467,7 +508,11 @@ def fbtn11():
     boola15 = False
 
     u['text']= 'A11'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A11').get().val() != 'bgris.ppm':
+        a11['state'] = DISABLED
+
 
 def fbtn12():
     global boola1
@@ -501,7 +546,11 @@ def fbtn12():
     global boola15
     boola15 = False
     u['text']= 'A12'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A12').get().val() != 'bgris.ppm':
+        a12['state'] = DISABLED
+
 
 def fbtn13():
     global boola1
@@ -536,7 +585,11 @@ def fbtn13():
     boola15 = False
 
     u['text']= 'A13'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A13').get().val() != 'bgris.ppm':
+        a13['state'] = DISABLED
+
 
 def fbtn14():
     global boola1
@@ -570,7 +623,11 @@ def fbtn14():
     global boola15
     boola15 = False
     u['text']= 'A14'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A14').get().val() != 'bgris.ppm':
+        a14['state'] = DISABLED
+
 
 def fbtn15():
     global boola1
@@ -605,7 +662,11 @@ def fbtn15():
     boola15 = True
 
     u['text']= 'A15'
-    checkBool()
+
+
+    if db.child("parking").child('A').child('A15').get().val() != 'bgris.ppm':
+        a15['state'] = DISABLED
+
 
 def checkBool():
     btn_reserve['state'] = ACTIVE
@@ -731,23 +792,23 @@ def checkBool():
         db.child('parking').child('A').update(jayson)
 
 
-a1 =tk.Button(btn1, image=imga1, command=fbtn1).pack()
-a2 =tk.Button(btn2, image=imga2, command=fbtn2).pack()
-a3 =tk.Button(btn3, image=imga3, command=fbtn3).pack()
-a4 =tk.Button(btn4, image=imga4, command=fbtn4).pack()
-a5 =tk.Button(btn5,image=imga5, command=fbtn5).pack()
-a6 =tk.Button(btn6,image=imga6, command=fbtn6).pack()
-a7 =tk.Button(btn7,image=imga7, command=fbtn7).pack()
-a8 =tk.Button(btn8,image=imga8, command=fbtn8).pack()
-a9 =tk.Button(btn9,image=imga9, command=fbtn9).pack()
-a10 =tk.Button(btn10,image=imga10, command=fbtn10).pack()
-a11 =tk.Button(btn11,image=imga11, command=fbtn11).pack()
-a12 =tk.Button(btn12,image=imga12, command=fbtn12).pack()
-a13 =tk.Button(btn13,image=imga13, command=fbtn13).pack()
-a14 =tk.Button(btn14,image=imga14, command=fbtn14).pack()
-a15 =tk.Button(btn15,image=imga15, command=fbtn15).pack()
+a1 =tk.Button(btn1, image=imga1, command=fbtn1,state = ACTIVE).pack()
+a2 =tk.Button(btn2, image=imga2, command=fbtn2,state = ACTIVE).pack()
+a3 =tk.Button(btn3, image=imga3, command=fbtn3,state = ACTIVE).pack()
+a4 =tk.Button(btn4, image=imga4, command=fbtn4,state = ACTIVE).pack()
+a5 =tk.Button(btn5,image=imga5, command=fbtn5,state = ACTIVE).pack()
+a6 =tk.Button(btn6,image=imga6, command=fbtn6,state = ACTIVE).pack()
+a7 =tk.Button(btn7,image=imga7, command=fbtn7,state = ACTIVE).pack()
+a8 =tk.Button(btn8,image=imga8, command=fbtn8,state = ACTIVE).pack()
+a9 =tk.Button(btn9,image=imga9, command=fbtn9,state = ACTIVE).pack()
+a10 =tk.Button(btn10,image=imga10, command=fbtn10,state = ACTIVE).pack()
+a11 =tk.Button(btn11,image=imga11, command=fbtn11,state = ACTIVE).pack()
+a12 =tk.Button(btn12,image=imga12, command=fbtn12,state = ACTIVE).pack()
+a13 =tk.Button(btn13,image=imga13, command=fbtn13,state = ACTIVE).pack()
+a14 =tk.Button(btn14,image=imga14, command=fbtn14,state = ACTIVE).pack()
+a15 =tk.Button(btn15,image=imga15, command=fbtn15,state = ACTIVE).pack()
 
-btn_reserve = tk.Button(btn_frame, text='Reservar', state= DISABLED, width=70)
+btn_reserve = tk.Button(btn_frame, text='Reservar', width=70, command = checkBool)
 btn_reserve.pack()
 k = Text(fr_text,width=80, height=10)
 k.insert(INSERT, "Recuerda que la opción de reservar un cajón se encuentra disponible para los estudiantes que están dispuestos a que al llegar a la universidad otorguen a la aplicación el estado(Vacio, ocupado) de tres cajones que el sistema tenga etiquetados como sin información. Entendemos que si usted no desea otorgar dicha información se limite a mirar en el mapa que lugares están disponibles para posteriormente cuando llegue, marcarlo como ocupado. El no respetar esta normativa y reservar su espacio sin otorgar al sistema la información en un máximo de 30 min después de su llegada a la institución le hará acreedor de una sanción del uso de la funcionabilidad de Reservar por una semana.El propósito de esta herramienta es que sea para un beneficio de la comunidad, le exhortamos a no abusar de ella")
