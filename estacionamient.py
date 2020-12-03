@@ -7,7 +7,7 @@ config = {
   "authDomain": "iteso-parking.firebaseapp.com",
   "databaseURL": "https://iteso-parking.firebaseio.com",
   "storageBucket": "iteso-parking.appspot.com",
-  "serviceAccount": "E:\GitHub\ITESOparking\juan.json"
+  "serviceAccount": "D:\Archivos  ITESO\Clases\Algoritmos y Programacion\ITESO Parking\ITESOparking\juan.json"
 }
 
 
