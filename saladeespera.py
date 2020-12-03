@@ -25,7 +25,9 @@ fr_leyenda = Frame(0)
 fr_leyenda2 = Frame(0)
 fr_leyenda3 = Frame(0)
 fr_selected = Frame(0)
-btn_frame = Frame(0)
+fr_ocupied= Frame(0)
+fr_free = Frame(0)
+fr_Logout = Frame(0)
 fr_text = Frame(0, width=900,height=900)
 
 canvas_parking = Canvas(0, width=560,height=400)
@@ -122,7 +124,7 @@ def fbtn1():
     boola15 = False
 
     u['text']= 'A1'
-    checkBool()
+
 
 def fbtn2():
     global boola1
@@ -156,7 +158,7 @@ def fbtn2():
     global boola15
     boola15 = False
     u['text']= 'A2'
-    checkBool()
+
 
 def fbtn3():
     global boola1
@@ -191,7 +193,7 @@ def fbtn3():
     boola15 = False
 
     u['text']= 'A3'
-    checkBool()
+
 
 def fbtn4():
     global boola1
@@ -225,7 +227,7 @@ def fbtn4():
     global boola15
     boola15 = False
     u['text']= 'A4'
-    checkBool()
+
 
 def fbtn5():
     global boola1
@@ -260,7 +262,7 @@ def fbtn5():
     boola15 = False
 
     u['text']= 'A5'
-    checkBool()
+
 
 def fbtn6():
     global boola1
@@ -294,7 +296,7 @@ def fbtn6():
     global boola15
     boola15 = False
     u['text']= 'A6'
-    checkBool()
+
 
 def fbtn7():
     global boola1
@@ -329,7 +331,7 @@ def fbtn7():
     boola15 = False
 
     u['text']= 'A7'
-    checkBool()
+
 
 def fbtn8():
     global boola1
@@ -363,7 +365,7 @@ def fbtn8():
     global boola15
     boola15 = False
     u['text']= 'A8'
-    checkBool()
+
 
 def fbtn9():
     global boola1
@@ -398,7 +400,7 @@ def fbtn9():
     boola15 = False
 
     u['text']= 'A9'
-    checkBool()
+
 
 def fbtn10():
     global boola1
@@ -432,7 +434,7 @@ def fbtn10():
     global boola15
     boola15 = False
     u['text']= 'A10'
-    checkBool()
+
 
 def fbtn11():
     global boola1
@@ -467,7 +469,7 @@ def fbtn11():
     boola15 = False
 
     u['text']= 'A11'
-    checkBool()
+
 
 def fbtn12():
     global boola1
@@ -501,7 +503,7 @@ def fbtn12():
     global boola15
     boola15 = False
     u['text']= 'A12'
-    checkBool()
+
 
 def fbtn13():
     global boola1
@@ -536,7 +538,7 @@ def fbtn13():
     boola15 = False
 
     u['text']= 'A13'
-    checkBool()
+
 
 def fbtn14():
     global boola1
@@ -570,7 +572,7 @@ def fbtn14():
     global boola15
     boola15 = False
     u['text']= 'A14'
-    checkBool()
+
 
 def fbtn15():
     global boola1
@@ -605,130 +607,73 @@ def fbtn15():
     boola15 = True
 
     u['text']= 'A15'
+def logOut():
+    jayson = \
+        {
+            'user': ''
+        }
+    jayson
+def isOcupied():
     checkBool()
-
+    jayson = \
+        {
+            dr: 'brojo.ppm'
+        }
+    db.child('parking').child('A').update(jayson)
+def isFree():
+    checkBool()
+    jayson = \
+        {
+            dr: 'bverde.ppm'
+        }
+    db.child('parking').child('A').update(jayson)
 def checkBool():
-    btn_reserve['state'] = ACTIVE
+    global dr
     if boola1 == True and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A1 True")
         dr = 'A1'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == True and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A2 True")
         dr = 'A2'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == True and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A3 True")
         dr = 'A3'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == True and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A4 True")
         dr = 'A4'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == True and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A5 True")
         dr = 'A5'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == True and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A6 True")
         dr = 'A6'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == True and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A7 True")
         dr = 'A7'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == True and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A8 True")
         dr = 'A8'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == True and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A9 True")
         dr = 'A9'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == True and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A10 True")
         dr = 'A10'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == True and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A11 True")
         dr = 'A11'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == True and boola13 == False and boola14 == False and boola15 == False:
         print("A12 True")
         dr = 'A12'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == True and boola14 == False and boola15 == False:
         print("A13 True")
         dr = 'A13'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == True and boola15 == False:
         print("A14 True")
         dr = 'A14'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == True:
         print("A15 True")
         dr = 'A15'
-        jayson = \
-            {
-                dr : 'bamarillo.ppm'
-            }
-        db.child('parking').child('A').update(jayson)
 
 
 a1 =tk.Button(btn1, image=imga1, command=fbtn1).pack()
@@ -747,8 +692,12 @@ a13 =tk.Button(btn13,image=imga13, command=fbtn13).pack()
 a14 =tk.Button(btn14,image=imga14, command=fbtn14).pack()
 a15 =tk.Button(btn15,image=imga15, command=fbtn15).pack()
 
-btn_reserve = tk.Button(btn_frame, text='Reservar', state= DISABLED, width=70)
-btn_reserve.pack()
+btn_ocupied = tk.Button(fr_ocupied, text='Ocupado',  width=35, command= isOcupied)
+btn_ocupied.pack()
+btn_free = tk.Button(fr_free, text='Free',  width=35, command = isFree)
+btn_free.pack()
+btn_logout = tk.Button(fr_Logout, text=' Log Out ', width=35, command = logout)
+btn_logout.pack()
 k = Text(fr_text,width=80, height=10)
 k.insert(INSERT, "Este es el espacio proporcionado para que usted coloque los datos de los 3 cajones en gris cercanos a usted, por favor seleccionelos y despues haga click en ocupado o libre segun su estado.")
 k.pack()
@@ -781,8 +730,9 @@ canvas.create_window(560,550, anchor= NW, window=btn12)
 canvas.create_window(190,550, anchor= NW, window=btn13)
 canvas.create_window(190,486, anchor= NW, window=btn14)
 canvas.create_window(190,420, anchor= NW, window=btn15)
-
+canvas.create_window(1200, 500, anchor= 'nw', window=fr_Logout)
 canvas.create_window(10, 10, anchor='nw', window=frame)
-canvas.create_window(860, 400, anchor='nw', window=btn_frame)
+canvas.create_window(860, 400, anchor='nw', window=fr_ocupied)
+canvas.create_window(1100, 400, anchor='nw', window=fr_free)
 canvas.create_window(800,200, anchor='nw', window=fr_text)
 canvas.mainloop()
