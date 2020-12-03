@@ -608,11 +608,14 @@ def fbtn15():
 
     u['text']= 'A15'
 def logOut():
+    dr = db.child("active").child('boton').get().val()
     jayson = \
         {
-            'user': ''
+            dr: 'brojo.ppm'
         }
-    jayson
+    db.child('parking').child('A').update(jayson)
+    db.child("active").update({'usuario': ''})
+    db.child("active").update({'boton': ''})
 def isOcupied():
     checkBool()
     jayson = \
@@ -696,10 +699,10 @@ btn_ocupied = tk.Button(fr_ocupied, text='Ocupado',  width=35, command= isOcupie
 btn_ocupied.pack()
 btn_free = tk.Button(fr_free, text='Free',  width=35, command = isFree)
 btn_free.pack()
-btn_logout = tk.Button(fr_Logout, text=' Log Out ', width=35, command = logout)
+btn_logout = tk.Button(fr_Logout, text=' Log Out ', width=35, command = logOut)
 btn_logout.pack()
 k = Text(fr_text,width=80, height=10)
-k.insert(INSERT, "Este es el espacio proporcionado para que usted coloque los datos de los 3 cajones en gris cercanos a usted, por favor seleccionelos y despues haga click en ocupado o libre segun su estado.")
+k.insert(INSERT, "Este es el espacio proporcionado para que usted coloque los datos de los 3 cajones en gris cercanos a usted, por favor seleccionelos y despues haga click en ocupado o libre segun su estado. Si localizas algun espacio que se encuntra mal sientete libre de corregirlo ")
 k.pack()
 y = tk.Label(fr_leyenda, text='Leyenda: Verde es Libre  Naranja es Reservado, Rojo es ocupado, Gris es desahibiltado ', width=70, height= 2, font=('Helvetica', 10))
 y.pack()
