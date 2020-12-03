@@ -14,6 +14,37 @@ db = firebase.database()
 active_user = ''
 all_users = db.child("Usuarios").get()
 
+json ={
+  "Usuarios" : {
+      "Juan" : {
+          "password": "naruto69"
+      }
+  },
+  "active" : {
+    "usuario" : ""
+  },
+  "parking" : {
+    "A" : {
+      "A1" : "bgris.ppm",
+      "A10" : "bgris.ppm",
+      "A11" : "bgris.ppm",
+      "A12" : "bgris.ppm",
+      "A13" : "bgris.ppm",
+      "A14" : "bgris.ppm",
+      "A15" : "bgris.ppm",
+      "A2" : "bgris.ppm",
+      "A3" : "bgris.ppm",
+      "A4" : "bgris.ppm",
+      "A5" : "bgris.ppm",
+      "A6" : "bgris.ppm",
+      "A7" : "bgris.ppm",
+      "A8" : "bgris.ppm",
+      "A9" : "bgris.ppm"
+    }
+  }
+}
+db.set(json)
+
 #Funcion para boton de Login
 def logIn():
     usr = userio.get()
