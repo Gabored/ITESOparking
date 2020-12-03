@@ -678,6 +678,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == True and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A2 True")
         dr = 'A2'
@@ -686,6 +687,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == True and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A3 True")
         dr = 'A3'
@@ -694,6 +696,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == True and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A4 True")
         dr = 'A4'
@@ -702,6 +705,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == True and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A5 True")
         dr = 'A5'
@@ -710,6 +714,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == True and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A6 True")
         dr = 'A6'
@@ -718,6 +723,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == True and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A7 True")
         dr = 'A7'
@@ -726,6 +732,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == True and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A8 True")
         dr = 'A8'
@@ -734,6 +741,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == True and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A9 True")
         dr = 'A9'
@@ -742,6 +750,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == True and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A10 True")
         dr = 'A10'
@@ -750,6 +759,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == True and boola12 == False and boola13 == False and boola14 == False and boola15 == False:
         print("A11 True")
         dr = 'A11'
@@ -758,6 +768,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == True and boola13 == False and boola14 == False and boola15 == False:
         print("A12 True")
         dr = 'A12'
@@ -766,6 +777,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == True and boola14 == False and boola15 == False:
         print("A13 True")
         dr = 'A13'
@@ -774,6 +786,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == True and boola15 == False:
         print("A14 True")
         dr = 'A14'
@@ -782,6 +795,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
     if boola1 == False and boola2 == False and boola3 == False and boola4 == False and boola5 == False and boola6 == False and boola7 == False and boola8 == False and boola9 == False and boola10 == False and boola11 == False and boola12 == False and boola13 == False and boola14 == False and boola15 == True:
         print("A15 True")
         dr = 'A15'
@@ -790,6 +804,7 @@ def checkBool():
                 dr : 'bamarillo.ppm'
             }
         db.child('parking').child('A').update(jayson)
+        db.child("active").update({'boton': dr})
 
 
 a1 =tk.Button(btn1, image=imga1, command=fbtn1,state = ACTIVE).pack()

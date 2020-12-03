@@ -21,7 +21,8 @@ json ={
       }
   },
   "active" : {
-    "usuario" : ""
+    "usuario" : "",
+    "boton" : ""
   },
   "parking" : {
     "A" : {
@@ -53,11 +54,7 @@ def logIn():
     for user in all_users.each():
         if usr == str(user.key()):
             if passw == user.val().get('password'):
-
-                json = {
-                    usr:''
-                }
-                db.child("active").set(json)
+                db.child("active").update({'usuario': usr})
                 labellog["text"] = "Log exitoso"
                 return True
             else:
