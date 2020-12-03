@@ -44,7 +44,7 @@ json ={
     }
   }
 }
-db.set(json)
+#db.set(json)
 
 #Funcion para boton de Login
 def logIn():

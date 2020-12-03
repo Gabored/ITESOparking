@@ -125,7 +125,7 @@ def fbtn1():
 
 
     if db.child("parking").child('A').child('A1').get().val() != 'bgris.ppm':
-        a1['state'] = DISABLED
+        a1["state"] = DISABLED
 
 
 
@@ -164,7 +164,7 @@ def fbtn2():
 
 
     if db.child("parking").child('A').child('A2').get().val() != 'bgris.ppm':
-        a2['state'] = DISABLED
+        a2["state"] = DISABLED
 
 
 def fbtn3():
@@ -203,7 +203,7 @@ def fbtn3():
 
 
     if db.child("parking").child('A').child('A3').get().val() != 'bgris.ppm':
-        a3['state'] = DISABLED
+        a3["state"] = DISABLED
 
 
 def fbtn4():
@@ -241,7 +241,7 @@ def fbtn4():
 
 
     if db.child("parking").child('A').child('A4').get().val() != 'bgris.ppm':
-        a4['state'] = DISABLED
+        a4["state"] = DISABLED
 
 
 def fbtn5():
@@ -280,7 +280,7 @@ def fbtn5():
 
 
     if db.child("parking").child('A').child('A5').get().val() != 'bgris.ppm':
-        a5['state'] = DISABLED
+        a5["state"] = DISABLED
 
 
 def fbtn6():
@@ -318,7 +318,7 @@ def fbtn6():
 
 
     if db.child("parking").child('A').child('A6').get().val() != 'bgris.ppm':
-        a6['state'] = DISABLED
+        a6["state"] = DISABLED
 
 
 def fbtn7():
@@ -357,7 +357,7 @@ def fbtn7():
 
 
     if db.child("parking").child('A').child('A7').get().val() != 'bgris.ppm':
-        a7['state'] = DISABLED
+        a7["state"] = DISABLED
 
 
 def fbtn8():
@@ -395,7 +395,7 @@ def fbtn8():
 
 
     if db.child("parking").child('A').child('A8').get().val() != 'bgris.ppm':
-        a8['state'] = DISABLED
+        a8["state"] = DISABLED
 
 
 def fbtn9():
@@ -434,7 +434,7 @@ def fbtn9():
 
 
     if db.child("parking").child('A').child('A9').get().val() != 'bgris.ppm':
-        a9['state'] = DISABLED
+        a9["state"] = DISABLED
 
 
 def fbtn10():
@@ -472,7 +472,7 @@ def fbtn10():
 
 
     if db.child("parking").child('A').child('A10').get().val() != 'bgris.ppm':
-        a10['state'] = DISABLED
+        a10["state"] = DISABLED
 
 
 def fbtn11():
@@ -511,7 +511,7 @@ def fbtn11():
 
 
     if db.child("parking").child('A').child('A11').get().val() != 'bgris.ppm':
-        a11['state'] = DISABLED
+        a11["state"] = DISABLED
 
 
 def fbtn12():
@@ -549,7 +549,7 @@ def fbtn12():
 
 
     if db.child("parking").child('A').child('A12').get().val() != 'bgris.ppm':
-        a12['state'] = DISABLED
+        a12["state"] = DISABLED
 
 
 def fbtn13():
@@ -588,7 +588,7 @@ def fbtn13():
 
 
     if db.child("parking").child('A').child('A13').get().val() != 'bgris.ppm':
-        a13['state'] = DISABLED
+        a13["state"] = DISABLED
 
 
 def fbtn14():
@@ -626,7 +626,7 @@ def fbtn14():
 
 
     if db.child("parking").child('A').child('A14').get().val() != 'bgris.ppm':
-        a14['state'] = DISABLED
+        a14["state"] = DISABLED
 
 
 def fbtn15():
@@ -665,7 +665,7 @@ def fbtn15():
 
 
     if db.child("parking").child('A').child('A15').get().val() != 'bgris.ppm':
-        a15['state'] = DISABLED
+        a15["state"] = DISABLED
 
 
 def checkBool():
@@ -807,21 +807,37 @@ def checkBool():
         db.child("active").update({'boton': dr})
 
 
-a1 =tk.Button(btn1, image=imga1, command=fbtn1,state = ACTIVE).pack()
-a2 =tk.Button(btn2, image=imga2, command=fbtn2,state = ACTIVE).pack()
-a3 =tk.Button(btn3, image=imga3, command=fbtn3,state = ACTIVE).pack()
-a4 =tk.Button(btn4, image=imga4, command=fbtn4,state = ACTIVE).pack()
-a5 =tk.Button(btn5,image=imga5, command=fbtn5,state = ACTIVE).pack()
-a6 =tk.Button(btn6,image=imga6, command=fbtn6,state = ACTIVE).pack()
-a7 =tk.Button(btn7,image=imga7, command=fbtn7,state = ACTIVE).pack()
-a8 =tk.Button(btn8,image=imga8, command=fbtn8,state = ACTIVE).pack()
-a9 =tk.Button(btn9,image=imga9, command=fbtn9,state = ACTIVE).pack()
-a10 =tk.Button(btn10,image=imga10, command=fbtn10,state = ACTIVE).pack()
-a11 =tk.Button(btn11,image=imga11, command=fbtn11,state = ACTIVE).pack()
-a12 =tk.Button(btn12,image=imga12, command=fbtn12,state = ACTIVE).pack()
-a13 =tk.Button(btn13,image=imga13, command=fbtn13,state = ACTIVE).pack()
-a14 =tk.Button(btn14,image=imga14, command=fbtn14,state = ACTIVE).pack()
-a15 =tk.Button(btn15,image=imga15, command=fbtn15,state = ACTIVE).pack()
+a1 =tk.Button(btn1, image=imga1, command=fbtn1,state = ACTIVE)
+a2 =tk.Button(btn2, image=imga2, command=fbtn2,state = ACTIVE)
+a3 =tk.Button(btn3, image=imga3, command=fbtn3,state = ACTIVE)
+a4 =tk.Button(btn4, image=imga4, command=fbtn4,state = ACTIVE)
+a5 =tk.Button(btn5,image=imga5, command=fbtn5,state = ACTIVE)
+a6 =tk.Button(btn6,image=imga6, command=fbtn6,state = ACTIVE)
+a7 =tk.Button(btn7,image=imga7, command=fbtn7,state = ACTIVE)
+a8 =tk.Button(btn8,image=imga8, command=fbtn8,state = ACTIVE)
+a9 =tk.Button(btn9,image=imga9, command=fbtn9,state = ACTIVE)
+a10 =tk.Button(btn10,image=imga10, command=fbtn10,state = ACTIVE)
+a11 =tk.Button(btn11,image=imga11, command=fbtn11,state = ACTIVE)
+a12 =tk.Button(btn12,image=imga12, command=fbtn12,state = ACTIVE)
+a13 =tk.Button(btn13,image=imga13, command=fbtn13,state = ACTIVE)
+a14 =tk.Button(btn14,image=imga14, command=fbtn14,state = ACTIVE)
+a15 =tk.Button(btn15,image=imga15, command=fbtn15,state = ACTIVE)
+
+a1.pack()
+a2.pack()
+a3.pack()
+a4.pack()
+a5.pack()
+a6.pack()
+a7.pack()
+a8.pack()
+a9.pack()
+a10.pack()
+a11.pack()
+a12.pack()
+a13.pack()
+a14.pack()
+a15.pack()
 
 btn_reserve = tk.Button(btn_frame, text='Reservar', width=70, command = checkBool)
 btn_reserve.pack()
